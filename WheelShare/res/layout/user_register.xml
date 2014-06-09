@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/User_Register"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".User_Register" >
+    
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center_vertical"
+	    android:orientation="vertical"
+	    android:padding="@dimen/tinyMargin" >
+
+        <TextView
+            android:id="@+id/Register"
+            android:text="@string/User_Register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/standardMargin"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/NAME_Field"
+            android:hint="@string/User_Name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/tinyMargin" />
+
+        <EditText
+            android:id="@+id/EMAIL_Field"
+            android:hint="@string/User_Email"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="@dimen/tinyMargin" />
+
+        <EditText
+            android:id="@+id/PASS_Field"
+            android:hint="@string/User_New_Password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:layout_marginBottom="@dimen/tinyMargin" />
+
+        <EditText
+            android:id="@+id/PASSV_Field"
+            android:hint="@string/User_New_Password_Verify"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+         
+        <TextView
+            android:id="@+id/STATUS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textIsSelectable="true"
+            android:textStyle="bold" />
+   
+        <Button
+            android:id="@+id/Register_Button"
+            android:text="@string/User_Register_Button" 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/tinyMargin"
+            android:textStyle="bold"
+            android:onClick="register" />
+ 
+        <Button
+            android:id="@+id/Login_Button"
+            android:text="@string/User_Register_Existing_Button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="login" />
+    </LinearLayout>
+ 
+</ScrollView>

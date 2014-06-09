@@ -1,0 +1,46 @@
+<LinearLayout
+    android:id="@+id/Ride_Search"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".Restaurant_List" >
+    
+    <TextView
+        android:id="@+id/CREATE_Button"
+        android:text="@string/Ride_Search_Results_Create_Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+   		android:padding="@dimen/tinyMargin"
+        android:layout_gravity="center_horizontal"
+        android:onClick="createNewRide"
+        android:textStyle="italic"
+        android:clickable="true" />
+         
+    <TextView
+        android:id="@+id/STATUS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textIsSelectable="true"
+        android:textStyle="bold" />
+    
+    <EditText
+        android:id="@+id/SORT_BY_FIELD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="@string/Ride_Search_Results_Sort"
+        android:inputType="text"
+        android:onClick="sortBy" />
+    
+	<ListView
+	    android:id="@+id/RESULTS_ListView"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" />
+
+</LinearLayout>

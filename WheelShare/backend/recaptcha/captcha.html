@@ -1,0 +1,96 @@
+<html xmlns="<a href="http://www.w3.org/1999/xhtml">http://www.w3.org/1999/xhtml</a>" lang="en" xml:lang="en">
+<head>
+<title>ReCaptcha Integration</title>
+<script type="text/javascript" src="<a href="http://api.recaptcha.net/js/recaptcha_ajax.js%22%3E%3C/script">http://api.recaptcha.net/js/recaptcha_ajax.js"></script</a>>
+<script type="text/javascript">
+function PreloadCaptcha() {
+showRecaptcha();
+}
+
+function showRecaptcha() {
+Recaptcha.create("6LcCYe8SAAAAALsqtQmjcaT_YGMdXUUchvJVoIgN", "dynamic_recaptcha_1", {
+theme: "white",
+callback: Recaptcha.focus_response_field
+});
+}
+
+var xmlhttp;
+function submitFormData(name)
+{
+
+//alert("Message");
+xmlhttp=null;
+if (window.XMLHttpRequest)
+{// code for IE7, Firefox, Opera, etc.
+xmlhttp=new XMLHttpRequest();
+}
+else if (window.ActiveXObject)
+{// code for IE6, IE5
+xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+}
+if (xmlhttp!=null)
+{
+xmlhttp.onreadystatechange=state_Change;
+var url = "postformdata";
+var params = "name="+name+"&recaptcha_challenge_field=" + Recaptcha.get_challenge() + "&recaptcha_response_field="+Recaptcha.get_response();
+var status = document.getElementById("status");
+status.innerHTML = "<img src='img/ajax-loader.gif'><b>Submitting your data. Please wait...</b>";
+xmlhttp.open("POST",url,true);
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.setRequestHeader("Content-length", params.length);
+xmlhttp.setRequestHeader("Connection", "close");
+xmlhttp.send(params);
+}
+else
+{
+alert("Your browser does not support XMLHTTP.");
+}
+}
+
+function state_Change()
+{
+if (xmlhttp.readyState==4)
+{// 4 = "loaded"
+if (xmlhttp.status==200)
+{
+// 200 = "OK"
+var status = document.getElementById("status");
+status.innerHTML = xmlhttp.responseText;;
+Recaptcha.reload();
+setTimeout(function() {
+status.innerHTML = "";
+}, 3000);
+}
+else {
+var status = document.getElementById("status");
+status.innerHTML = xmlhttp.responseText;;
+Recaptcha.reload();
+setTimeout(function() {
+status.innerHTML = "";
+}, 3000);
+}
+}
+}
+</script>
+</head>
+
+<body onload="PreloadCaptcha()">
+<FORM NAME="dataform">
+<TABLE>
+<TR>
+<TD><b>Your name:</b></TD>
+<TD><INPUT NAME="txtName"/></TD>
+</TR>
+<TR>
+<TD colspan="2"><div id="dynamic_recaptcha_1"></div></TD>
+</TR>
+<TR>
+<TD colspan="2"><INPUT type="button" value="Submit Data" name="btnSubmitData" onClick="submitFormData(txtName.value); return true"></TD>
+</TR>
+<TR>
+<TD colspan="2"><div id="status"/></TD>
+</TR>
+</TABLE>
+</FORM>
+</body>
+</html>

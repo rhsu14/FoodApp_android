@@ -1,0 +1,126 @@
+<ScrollView
+    android:id="@+id/Ride_Search"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="@dimen/tinyMargin"
+    tools:context=".Restaurant_List" >
+
+    <TableLayout
+        android:id="@+id/OFFER_Table"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:shrinkColumns="0" >
+
+        <RadioGroup
+            android:id="@+id/OFFER_Radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/OFFER_Passenger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/Ride_Search_Offer_Passenger" />
+
+            <RadioButton
+                android:id="@+id/OFFER_Driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Ride_Search_Offer_Driver" />
+            
+        </RadioGroup>
+        
+	    <TableRow
+	        android:id="@+id/SRC" >
+	
+	        <EditText
+	            android:id="@+id/SRC_Field"
+	            android:hint="@string/Ride_Src_Hint"
+	            android:layout_weight="1"
+	            android:cursorVisible="false" 
+       	 		android:focusable="false" 
+        		android:focusableInTouchMode="false" 
+	            android:tag="source"
+	            android:onClick="cityLookup"/>
+	    </TableRow>
+	
+	    <TableRow
+	        android:id="@+id/DEST" >
+
+	        <EditText
+	            android:id="@+id/DEST_Field"
+	            android:hint="@string/Ride_Dest_Hint"
+	            android:layout_weight="1"
+	            android:cursorVisible="false" 
+       	 		android:focusable="false" 
+        		android:focusableInTouchMode="false" 
+	            android:tag="destination"
+	            android:onClick="cityLookup">
+
+	        </EditText>
+	    </TableRow>
+	    	
+	    <TableRow android:id="@+id/DEPART" >
+
+	        <EditText
+	            android:id="@+id/DEPART_DATE"
+	            android:layout_weight="1"
+	            android:cursorVisible="false"
+	            android:focusable="false"
+	            android:focusableInTouchMode="false"
+	            android:hint="@string/Ride_Date_Button"
+	            android:inputType="date"
+	            android:onClick="showDatePickerDialog" />
+
+	        <EditText
+	            android:id="@+id/DEPART_TIME"
+	            android:layout_weight="1"
+	            android:cursorVisible="false"
+	            android:focusable="false"
+	            android:focusableInTouchMode="false"
+	            android:hint="@string/Ride_Depart_Hint"
+	            android:inputType="time"
+	            android:onClick="showTimePickerDialog" />
+
+	    </TableRow>
+	
+	    <TableRow
+	        android:id="@+id/SMOKING" >
+	
+	        <CheckBox
+	            android:id="@+id/SMOKING_CheckBox"
+	            android:text="@string/Ride_Smoker_Checkbox" />
+	    </TableRow>
+	
+	    <TableRow
+	        android:id="@+id/Search" >
+	
+	        <Button
+	            android:id="@+id/Search_Button"
+	            android:text="@string/Ride_Search_Button"
+	            android:layout_weight="1"
+	            android:onClick="searchSubmit" />
+
+	    </TableRow>
+	    
+	    <LinearLayout
+            android:id="@+id/Output"
+	        android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+	        
+	        <TextView
+	            android:id="@+id/STATUS"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:textIsSelectable="true"
+	            android:textStyle="bold" />
+	        
+	    </LinearLayout>
+	
+	</TableLayout>
+</ScrollView>

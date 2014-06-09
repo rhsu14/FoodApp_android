@@ -1,0 +1,173 @@
+<ScrollView
+    android:id="@+id/Ride_Payment"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/tinyMargin"
+    tools:context=".Ride_Payment" >
+    
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" >
+	    
+	    <LinearLayout
+	        android:id="@+id/CARD_TYPE"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:orientation="horizontal" >
+	         
+	        <TextView
+	            android:id="@+id/CARD_TYPE_Text"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:text="@string/Ride_Payment_Type_Text" />
+	        
+	        <EditText
+	            android:id="@+id/CARD_TYPE_Field"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:layout_marginBottom="@dimen/tinyMargin"
+	            android:inputType="text" />
+	        
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:id="@+id/CARD_NUMBER"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:orientation="horizontal" >
+	         
+	        <TextView
+	            android:id="@+id/CARD_NUMBER_Text"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:text="@string/Ride_Payment_Number_Text" />
+	        
+	        <EditText
+	            android:id="@+id/CARD_NUMBER_Field"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:layout_marginBottom="@dimen/tinyMargin"
+	            android:inputType="number" />
+	        
+	    </LinearLayout>
+		    
+	    <LinearLayout
+	        android:id="@+id/CARD_NAME"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:orientation="horizontal" >
+	    
+		    <TextView
+		        android:id="@+id/CARD_NAME_Text"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center_vertical"
+		        android:text="@string/Ride_Payment_Name_Text" />
+		
+		    <EditText
+		        android:id="@+id/CARD_NAME_Field"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center_horizontal"
+		        android:layout_marginBottom="@dimen/tinyMargin"
+		        android:inputType="text" />
+	        
+	    </LinearLayout>
+	    
+		<LinearLayout
+		    android:id="@+id/CARD_EXPIRY"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="center_horizontal"
+		    android:orientation="horizontal" >
+	    
+	        <TextView
+	            android:id="@+id/CARD_EXPIRY_Text"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:text="@string/Ride_Payment_Expiry_Text" />
+	        
+	        <EditText
+	            android:id="@+id/CARD_MONTH_Field"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:layout_marginBottom="@dimen/tinyMargin"
+	            android:hint="@string/Ride_Payment_Month_Hint"
+	            android:inputType="number" />
+		
+		    <TextView
+		        android:id="@+id/DIVIDER"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center_vertical"
+		        android:text="@string/Forward_Slash" />
+		
+		    <EditText
+		        android:id="@+id/CARD_YEAR_Field"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center_horizontal"
+		        android:layout_marginBottom="@dimen/tinyMargin"
+		        android:hint="@string/Ride_Payment_Year_Hint"
+		        android:inputType="number" />
+	        
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:id="@+id/CARD_CSV"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:orientation="horizontal" >
+	    
+	        <TextView
+	            android:id="@+id/CARD_CSV_Text"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:text="@string/Ride_Payment_CSV_Text" />
+	    
+		    <EditText
+		        android:id="@+id/CARD_CSV_Field"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center_horizontal"
+		        android:layout_marginBottom="@dimen/tinyMargin"
+		        android:hint="@string/Ride_Payment_CSV_Hint"
+		        android:inputType="number" />
+	        
+	    </LinearLayout>
+	
+	    <Button
+	        android:id="@+id/VERIFY_Button"
+	        style="?android:attr/buttonStyleSmall"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:layout_marginBottom="@dimen/tinyMargin"
+	        android:onClick="verify"
+	        android:text="@string/Ride_Payment_Verify_Button" />
+	
+	    <TextView
+	        android:id="@+id/STATUS"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:textAppearance="?android:attr/textAppearanceSmall"
+	        android:textIsSelectable="true"
+	        android:textStyle="bold" />
+	    
+	</LinearLayout>
+</ScrollView>

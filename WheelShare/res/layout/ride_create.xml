@@ -1,0 +1,189 @@
+<ScrollView
+    android:id="@+id/Ride_Create"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Ride_Create"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:padding="@dimen/tinyMargin" >
+
+    <TableLayout
+        android:id="@+id/table"
+        android:shrinkColumns="0"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content" >
+
+        <RadioGroup
+            android:id="@+id/OFFER_Radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/OFFER_Passenger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/Ride_Create_Offer_Passenger"
+	            android:onClick="offerSwitch" />
+
+            <RadioButton
+                android:id="@+id/OFFER_Driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Ride_Create_Offer_Driver"
+	            android:onClick="offerSwitch" />
+            
+        </RadioGroup>
+
+	    <TableRow
+	        android:id="@+id/SRC"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+	
+	        <EditText
+	            android:id="@+id/SRC_Field"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:cursorVisible="false"
+	            android:focusable="false"
+	            android:focusableInTouchMode="false"
+	            android:hint="@string/Ride_Src_Hint"
+	            android:onClick="cityLookup"
+	            android:tag="source" />
+
+	    </TableRow>
+	
+	    <TableRow
+	        android:id="@+id/DEST"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+
+	        <EditText
+	            android:id="@+id/DEST_Field"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:cursorVisible="false"
+	            android:focusable="false"
+	            android:focusableInTouchMode="false"
+	            android:hint="@string/Ride_Dest_Hint"
+	            android:onClick="cityLookup"
+	            android:tag="destination" >
+
+	        </EditText>
+	    </TableRow>
+	    	
+	    <TableRow
+	        android:id="@+id/DEPART"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+
+	        <EditText
+	            android:id="@+id/DEPART_DATE"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:cursorVisible="false"
+	            android:focusable="false"
+	            android:focusableInTouchMode="false"
+	            android:hint="@string/Ride_Date_Button"
+	            android:inputType="date"
+	            android:onClick="showDatePickerDialog" />
+
+	        <EditText
+	            android:id="@+id/DEPART_TIME"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:cursorVisible="false"
+	            android:focusable="false"
+	            android:focusableInTouchMode="false"
+	            android:hint="@string/Ride_Depart_Hint"
+	            android:inputType="time"
+	            android:onClick="showTimePickerDialog" />
+
+	    </TableRow>
+	
+	    <TableRow
+	        android:id="@+id/SMOKER"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent" >
+	
+	        <CheckBox
+	            android:id="@+id/SMOKER_CheckBox"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:text="@string/Ride_Smoker_Checkbox" />
+
+	    </TableRow>
+	
+	    <TableRow
+	        android:id="@+id/MAXPASS_Row"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+	
+	        <TextView
+	            android:id="@+id/MAXPASS_Text"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:text="@string/Ride_Create_maxPass_Text"
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
+	
+	        <EditText
+	            android:id="@+id/MAXPASS_Field"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:ems="3"
+	            android:inputType="number" />
+
+	    </TableRow>
+	
+	    <TableRow
+	        android:id="@+id/CreateCost"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+	
+	        <TextView
+	            android:id="@+id/COST_Text"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:text="@string/Ride_Create_Cost_Text"
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
+	
+	        <EditText
+	            android:id="@+id/COST_Field"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:ems="3"
+	            android:hint="@string/Ride_Create_Cost_Hint"
+	            android:inputType="numberDecimal" />
+
+	    </TableRow>
+	    
+	    <LinearLayout 
+	        android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+	        
+	        <TextView
+	            android:id="@+id/STATUS"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:textIsSelectable="true"
+	            android:textStyle="bold" />
+	
+	        <Button
+	            android:id="@+id/Create_Button"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:onClick="createSubmit"
+	            android:text="@string/Ride_Create_Button" />
+	        
+	    </LinearLayout>
+	
+	</TableLayout>
+</ScrollView>

@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/check_out"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="Check Out"/>
+    <item
+        android:id="@+id/restaurants"
+        android:showAsAction="always"
+        android:title="Restaurants"/>
+
+</menu> 
