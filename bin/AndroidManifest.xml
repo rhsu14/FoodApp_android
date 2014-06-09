@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cccwheelshare"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- For GCM -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission android:name="com.cccwheelshare.permission.C2D_MESSAGE" 
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.cccwheelshare.permission.C2D_MESSAGE" />
+    <!-- FOR GCM -->
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:name="com.cccwheelshare.Globals"
+        android:allowBackup="true"
+        android:icon="@drawable/argentina"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+        <!--  FOR GCM -->
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+ 
+                <!-- Receives the actual messages. -->
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <!-- Receives the registration id. -->
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.cccwheelshare" />
+            </intent-filter>
+        </receiver>
+ 
+        <service android:name=".GCMIntentService" />
+        <!-- FOR GCM -->
+        
+        <activity
+            android:name="com.cccwheelshare.User_Login"
+            android:configChanges="locale"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cccwheelshare.User_Register"
+            android:label="@string/Title_User_Register" />
+        <activity
+            android:name="com.cccwheelshare.Menu_List"
+            android:label="@string/Title_Ride_Search_Results" />
+        <activity
+            android:name="com.cccwheelshare.Ride_Create"
+            android:label="@string/Title_Ride_Create" />
+        <activity
+            android:name="com.cccwheelshare.Tabs"
+            android:label="@string/Title_Tabs" />
+        <activity
+            android:name="com.cccwheelshare.Ride_Info"
+            android:label="@string/Title_Ride_Info"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.cccwheelshare.Restaurant_List"
+            android:label="@string/Title_Ride_Search" />
+        <activity
+            android:name="com.cccwheelshare.Ride_Payment"
+            android:label="@string/Title_Ride_Payment"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.cccwheelshare.Ride_Booking"
+            android:label="@string/Title_Ride_Booking"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.cccwheelshare.Ride_Pending"
+            android:label="@string/Title_Ride_Pending"
+            android:launchMode="singleTop" />
+        
+        <activity
+            android:name="com.cccwheelshare.Basket"
+            android:label="Basket"
+            android:launchMode="singleTop" />
+    </application>
+
+</manifest>
